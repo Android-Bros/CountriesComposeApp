@@ -1,8 +1,7 @@
 package com.androidbros.countries.viewmodel
 
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.androidbros.countries.model.CountryItem
@@ -14,8 +13,8 @@ import javax.inject.Inject
 @HiltViewModel
 class CountryDetailViewModel @Inject constructor(private val repository: CountryRepository): ViewModel() {
 
-    private val _country: MutableState<CountryItem?> = mutableStateOf(null)
-    val country: State<CountryItem?>
+    private val _country: MutableLiveData<List<CountryItem>> = MutableLiveData()
+    val country: LiveData<List<CountryItem>>
         get() = _country
 
     fun loadCountry(name: String) {
@@ -28,7 +27,7 @@ class CountryDetailViewModel @Inject constructor(private val repository: Country
         }
     }
 
-    private suspend fun getCountry(name: String): CountryItem{
+    private suspend fun getCountry(name: String): List<CountryItem>{
         return repository.getCountry(name)
     }
 

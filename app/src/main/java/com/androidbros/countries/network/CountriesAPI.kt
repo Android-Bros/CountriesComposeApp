@@ -10,6 +10,6 @@ interface CountriesAPI {
     suspend fun getAllCountries(): List<CountryItem>
 
     @GET("name/{NAME}")
-    suspend fun getCountry(@Path("NAME") name: String): CountryItem
+    suspend fun getCountry(@Path("NAME") name: String): List<CountryItem>
 
 }
