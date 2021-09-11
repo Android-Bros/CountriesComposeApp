@@ -87,6 +87,8 @@ dependencies {
     //ViewModel
     implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07'
 
+    //observeAsState
+    implementation 'androidx.compose.runtime:runtime-livedata:1.1.0-alpha03'
 }
 kapt {
     correctErrorTypes true
