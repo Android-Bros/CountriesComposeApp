@@ -8,3 +8,4 @@ val Purple700 = Color(0xFF3700B3)
 val Teal200 = Color(0xFF03DAC5)
 
 val SplashBackgroundColor = Color(0xFF8EECB4)
+val TopBarBackgroundColor = Color(0xFFBADEEE)
