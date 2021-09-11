@@ -13,7 +13,7 @@ class CountryRepository @Inject constructor(private val api: CountriesAPI) {
         return api.getAllCountries()
     }
 
-    suspend fun getCountry(name: String): CountryItem {
+    suspend fun getCountry(name: String): List<CountryItem> {
         return api.getCountry(name)
     }
 
