@@ -2,8 +2,11 @@ package com.androidbros.countries.repository
 
 import com.androidbros.countries.model.CountryItem
 import com.androidbros.countries.network.CountriesAPI
+import dagger.hilt.android.scopes.ActivityScoped
+import javax.inject.Inject
 
-class CountryRepository(private val api: CountriesAPI) {
+@ActivityScoped
+class CountryRepository @Inject constructor(private val api: CountriesAPI) {
 
 
     suspend fun getAllCountries(): List<CountryItem> {
