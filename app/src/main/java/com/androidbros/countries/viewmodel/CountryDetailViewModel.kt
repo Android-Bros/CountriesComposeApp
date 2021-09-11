@@ -12,29 +12,24 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class CountryListViewModel @Inject constructor(private val repository: CountryRepository) : ViewModel() {
+class CountryDetailViewModel @Inject constructor(private val repository: CountryRepository): ViewModel() {
 
-    private val _countriesList: MutableState<List<CountryItem>>  = mutableStateOf(emptyList())
-    val countriesList: State<List<CountryItem>>
-        get() = _countriesList
+    private val _country: MutableState<CountryItem?> = mutableStateOf(null)
+    val country: State<CountryItem?>
+        get() = _country
 
-
-    init {
-        loadAllCountries()
-    }
-
-    private fun loadAllCountries() {
+    fun loadCountry(name: String) {
         viewModelScope.launch {
             try {
-                _countriesList.value = getAllCountries()
+                _country.value = getCountry(name)
             }catch (e: Exception){
                 e.printStackTrace()
             }
         }
     }
 
-    private suspend fun getAllCountries(): List<CountryItem> {
-        return repository.getAllCountries()
+    private suspend fun getCountry(name: String): CountryItem{
+        return repository.getCountry(name)
     }
 
 }
