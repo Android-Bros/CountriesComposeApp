@@ -1,4 +1,4 @@
-package com.androidbros.countries.view
+package com.androidbros.countries.view.screens
 
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.lazy.LazyColumn
@@ -18,7 +18,7 @@ import com.androidbros.countries.viewmodel.CountryListViewModel
 @Composable
 fun CountryListScreen(navController: NavController,viewModel:CountryListViewModel= hiltViewModel()) {
 
-    val listState=viewModel.countriesList.observeAsState()
+    val listState=viewModel.countriesList
 
 
     Scaffold(topBar = { TopBar()}) {
@@ -27,7 +27,7 @@ fun CountryListScreen(navController: NavController,viewModel:CountryListViewMode
         if (!listState.value.isNullOrEmpty()){
 
             LazyColumn{
-                items(listState.value!!){ item ->
+                items(listState.value){ item ->
 
                     CountryCard(navController,item)
 

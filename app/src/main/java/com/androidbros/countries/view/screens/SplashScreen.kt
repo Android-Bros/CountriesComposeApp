@@ -1,4 +1,4 @@
-package com.androidbros.countries.view
+package com.androidbros.countries.view.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
