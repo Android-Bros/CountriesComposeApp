@@ -1,7 +1,6 @@
-package com.androidbros.countries.view
+package com.androidbros.countries.view.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
@@ -39,14 +38,14 @@ fun CountryDetailScreen(navController: NavController, name: String?) {
 
     val viewModel:CountryDetailViewModel= hiltViewModel()
     viewModel.loadCountry(name!!)
-    val detailState=viewModel.country.observeAsState()
+    val detailState=viewModel.country
 
 
     Scaffold(topBar = { TopBar()}) {
 
         if (!detailState.value.isNullOrEmpty()){
 
-            val detail= detailState.value!![0]
+            val detail= detailState.value[0]
             DetailScreenComponents(detail)
 
         }
@@ -76,7 +75,7 @@ fun DetailScreenComponents(detail:CountryItem) {
 
             BoxWithConstraints {
                 Image(
-                    painter = painterResource(id = R.drawable.map),
+                    painter = painterResource(id = R.drawable.earth),
                     contentDescription = "map",
                     modifier = Modifier
                         .fillMaxWidth()

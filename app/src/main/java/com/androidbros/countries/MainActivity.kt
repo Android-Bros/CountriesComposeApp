@@ -14,9 +14,9 @@ import androidx.navigation.compose.navArgument
 import androidx.navigation.compose.rememberNavController
 import coil.annotation.ExperimentalCoilApi
 import com.androidbros.countries.ui.theme.CountriesComposeAppTheme
-import com.androidbros.countries.view.CountryDetailScreen
-import com.androidbros.countries.view.CountryListScreen
-import com.androidbros.countries.view.SplashScreen
+import com.androidbros.countries.view.screens.CountryDetailScreen
+import com.androidbros.countries.view.screens.CountryListScreen
+import com.androidbros.countries.view.screens.SplashScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @ExperimentalAnimationApi
